@@ -1,0 +1,4 @@
+- name: Create a new popa
+  win_service:
+    name: popa
+    path: C:\temp\test.exe  

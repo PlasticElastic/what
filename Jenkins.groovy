@@ -12,15 +12,15 @@ pipeline {
         timeout(30)
     }
     parameters {
-        booleanParam name: 'haproxy', description: 'Развернуть конфиг', defaultValue: false
+        booleanParam name: 'haproxy', description: 'deploy conf', defaultValue: false
         choice name: 'environment',
-                choices: ['',
-                          ''],
-                description: 'Среда развертывания'
+                choices: ['prod',
+                          'test],
+                description: 'deployment enviroment'
         choice name: 'type',
-                choices: ['lol',
-                          'wtf',],
-                description: 'Тип интеграции'
+                choices: ['http',
+                          'tcp',],
+                description: 'type of integration'
         
     }
     stages {
@@ -39,10 +39,10 @@ pipeline {
                     dir('pipelines/ansible') {
                         def environment = ""
                         switch (params.environment) {
-                            case "Приемочно-сдаточные испытания (ПСИ)":
+                            case "Test":
                                 environment = "test"
                                 break
-                            case "Продакшн (ПРОД)":
+                            case "Prod":
                                 environment = "prod"
                                 break
                         }

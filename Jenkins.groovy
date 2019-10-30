@@ -64,7 +64,7 @@ pipeline {
                                             installation: 'ansible26',
                                             colorized: true,
                                             playbook: 'playbook.yml',
-                                            inventory: environment + '/hosts',
+                                            inventory: 'hosts',
                                             extras: "--limit '${hosts}' -vvv",
                                             
                                     )    

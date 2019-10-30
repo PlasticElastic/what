@@ -9,7 +9,6 @@ pipeline {
                 daysToKeepStr: '1',
                 numToKeepStr: '10'))
         skipDefaultCheckout()
-№        ansiColor('xterm')
         timeout(30)
     }
     parameters {

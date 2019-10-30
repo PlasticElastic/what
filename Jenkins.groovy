@@ -14,8 +14,8 @@ pipeline {
     parameters {
         booleanParam name: 'haproxy', description: 'deploy conf', defaultValue: false
         choice name: 'environment',
-                choices: ['prod',
-                          'test],
+                choices: [' ',
+                          ' '],
                 description: 'deployment enviroment'
         choice name: 'type',
                 choices: ['http',

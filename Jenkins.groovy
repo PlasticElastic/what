@@ -14,8 +14,8 @@ pipeline {
     parameters {
         booleanParam name: 'haproxy', description: 'deploy conf', defaultValue: false
         choice name: 'environment',
-                choices: [' ',
-                          ' '],
+                choices: ['test',
+                          'prod'],
                 description: 'deployment enviroment'
         choice name: 'type',
                 choices: ['http',
@@ -39,20 +39,20 @@ pipeline {
                     dir('pipelines/ansible') {
                         def environment = ""
                         switch (params.environment) {
-                            case "Test":
+                            case "test":
                                 environment = "test"
                                 break
-                            case "Prod":
+                            case "prod":
                                 environment = "prod"
                                 break
                         }
                         def type = ""
                         switch (params.type) {
-                            case "lol":
-                                type = "lol"
+                            case "http":
+                                type = "http"
                                 break
-                            case "wtf":
-                                type = "wtf"
+                            case "tcp":
+                                type = "tcp"
                                 break    
                         }
                         def hosts = "";

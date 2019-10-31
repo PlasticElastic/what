@@ -54,6 +54,7 @@ pipeline {
                                 break    
                         }
                         def hosts = ""
+                        string ('environment')
                                     ansiblePlaybook(
                                             installation: 'ansible26',
                                             colorized: true,

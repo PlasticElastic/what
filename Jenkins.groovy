@@ -55,7 +55,7 @@ pipeline {
                         }
                         def hosts = "";
                         if (params.haproxy) {
-                            hosts += "haproxy-" + type
+                            hosts = "haproxy-" + type
                         def tags = hosts
                                 {                                   
                                     ansiblePlaybook(

@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy applications') {
             steps {
                 script {
-                    dir('pipelines/ansible') {
+                    dir('pipelines') {
                         def environment = ""
                         switch (params.environment) {
                             case "test":
@@ -47,17 +47,13 @@ pipeline {
                         def type = ""
                         switch (params.type) {
                             case "http":
-                                type = "http"
+                                type = "http"'
                                 break
                             case "tcp":
                                 type = "tcp"
                                 break    
                         }
-                        def hosts = "";
-                        if (params.haproxy) {
-                            hosts = "haproxy-" + type
-                        def tags = hosts
-                                {                                   
+                        def hosts = ""
                                     ansiblePlaybook(
                                             installation: 'ansible26',
                                             colorized: true,

@@ -31,30 +31,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy applications') {
-            steps {
-                script {
-                    dir('pipelines') {
-                        def environment = ""
-                        switch (params.environment) {
-                            case "test":
-                                environment = "test"
-                                break
-                            case "prod":
-                                environment = "prod"
-                                break
-                        }
-                        def type = ""
-                        switch (params.type) {
-                            case "http":
-                                type = "http"'
-                                break
-                            case "tcp":
-                                type = "tcp"
-                                break    
-                        }
-                        def hosts = ""
-                        string('environment')
+
                                     ansiblePlaybook(
                                             installation: 'ansible26',
                                             colorized: true,
@@ -65,11 +42,7 @@ pipeline {
                                     )    
                         }                     
 
-                    }
-                }
-            }
-        }
-    }
+                    
 }
-}
+
 

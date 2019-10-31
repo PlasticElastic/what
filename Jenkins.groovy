@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label "masterLin"
-    }
+    agent any
     options {
         buildDiscarder(logRotator(
                 artifactDaysToKeepStr: '1',

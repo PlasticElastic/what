@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "Linux_Default || masterLin"
+        label "masterLin"
     }
     options {
         buildDiscarder(logRotator(
